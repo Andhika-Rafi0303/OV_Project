@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 hide_st_style = """
 <style>
@@ -60,7 +59,15 @@ with st.container():
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
                 st.session_state.message = f"Token valid. Here is your URL: {url}"
-                st.session_state.start_time = time.time()
+                st.session_state.start_time = st.time()
+                # Timer for updating message
+                with st.empty():
+                    for i in range(5, 0, -1):
+                        st.write(f"<div class='stAlert' style='background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; text-align: center;'><strong>Token valid. Here is your URL: {url}. Time remaining: {i}s</strong></div>", unsafe_allow_html=True)
+                        st.time.sleep(1)
+                    st.session_state.show_message = False
+                    st.session_state.message_type = 'warning'
+                    st.session_state.message = "Waktu habis"
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
@@ -73,16 +80,6 @@ with st.container():
             st.session_state.start_time = None
     st.write("</div>", unsafe_allow_html=True)
 
-# Handle message display
+# Display message
 if st.session_state.show_message:
-    if st.session_state.start_time:
-        elapsed_time = time.time() - st.session_state.start_time
-        if elapsed_time >= 5:  # If 5 seconds have passed
-            st.session_state.show_message = False
-            st.session_state.url = ""
-            st.session_state.message = "Waktu habis"
-            st.session_state.message_type = 'warning'
-        else:
-            st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
-    else:
-        st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+    st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)

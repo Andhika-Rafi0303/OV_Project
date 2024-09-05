@@ -9,6 +9,7 @@ footer > div:first-of-type {visibility: hidden;} /* Hide "Hosted with Streamlit"
 body {display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; flex-direction: column;}
 input[type='text'] {width: 300px; padding: 10px; font-size: 18px;} /* Adjust input field width and padding */
 .stAlert {font-size: 20px;} /* Increase font size of notifications */
+a {color: blue; text-decoration: underline;} /* Style links */
 </style>
 """
 
@@ -56,20 +57,7 @@ with st.container():
                 st.session_state.url = url
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
-                st.session_state.message = "Jawaban benar"
-                
-                # Display message and redirect
-                st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
-                
-                # Use JavaScript to open the URL in a new tab
-                st.markdown(f"""
-                    <script>
-                    setTimeout(function() {{
-                        window.open("{st.session_state.url}", "_blank");
-                    }}, 100);
-                    </script>
-                    """, unsafe_allow_html=True)
-                
+                st.session_state.message = f"JAWABAN BENAR. <a href='{url}' target='_blank'>AKSES LINK</a>"
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
@@ -83,3 +71,5 @@ with st.container():
 # Display message
 if st.session_state.show_message:
     st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+    # Reset the message after displaying it
+    st.session_state.show_message = False

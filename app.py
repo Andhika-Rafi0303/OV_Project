@@ -46,7 +46,7 @@ if st.button("Submit"):
             st.session_state.url = url
             st.session_state.show_message = True
             st.session_state.start_time = time.time()  # Record start time
-            st.success("Token valid. Here is your URL:")
+            st.success(f"Token valid. Here is your URL: {url}")
         else:
             display_message("Jawaban salah", 'error')
     else:
@@ -54,7 +54,6 @@ if st.button("Submit"):
 
 # Check if URL should be displayed
 if st.session_state.show_message:
-    st.markdown(f"<a href='{st.session_state.url}' target='_blank'>{st.session_state.url}</a>", unsafe_allow_html=True)
     elapsed_time = time.time() - st.session_state.start_time
     if elapsed_time >= 5:  # If 5 seconds have passed
         st.session_state.show_message = False

@@ -30,12 +30,12 @@ tokens_dict = st.secrets["tokens"]
 # Initialize session state variables
 if 'show_message' not in st.session_state:
     st.session_state.show_message = False
-if 'url' not in st.session_state:
-    st.session_state.url = ""
 if 'message_type' not in st.session_state:
     st.session_state.message_type = ''
 if 'message' not in st.session_state:
     st.session_state.message = ''
+if 'url' not in st.session_state:
+    st.session_state.url = ''
 
 col1, col2 = st.columns([1, 1], vertical_alignment='center')
 with col1:
@@ -43,7 +43,7 @@ with col1:
 with col2:
     st.image('Logo_BD.png', use_column_width=True)
 
-st.title("Code Inputer")
+st.title("Token Verification System")
 
 # Centered input and button
 with st.container():
@@ -56,7 +56,20 @@ with st.container():
                 st.session_state.url = url
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
-                st.session_state.message = f"Akses link tersebut : {url}"
+                st.session_state.message = "Jawaban benar"
+                
+                # Display message and redirect
+                st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+                
+                # Use JavaScript to open the URL in a new tab
+                st.markdown(f"""
+                    <script>
+                    setTimeout(function() {{
+                        window.open("{st.session_state.url}", "_blank");
+                    }}, 100);
+                    </script>
+                    """, unsafe_allow_html=True)
+                
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
@@ -64,11 +77,9 @@ with st.container():
         else:
             st.session_state.show_message = True
             st.session_state.message_type = 'error'
-            st.session_state.message = "Harus diisi."
+            st.session_state.message = "Token harus diisi."
     st.write("</div>", unsafe_allow_html=True)
 
 # Display message
 if st.session_state.show_message:
     st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
-    # Reset the message after displaying it
-    st.session_state.show_message = False

@@ -22,10 +22,12 @@ def display_message(message, status):
 # Load tokens from secrets
 tokens_dict = st.secrets["tokens"]
 
-if 'url_displayed' not in st.session_state:
-    st.session_state.url_displayed = False
+if 'show_message' not in st.session_state:
+    st.session_state.show_message = False
 if 'url' not in st.session_state:
     st.session_state.url = ""
+if 'start_time' not in st.session_state:
+    st.session_state.start_time = None
 
 col1, col2 = st.columns([1, 1], vertical_alignment='center')
 with col1:
@@ -42,17 +44,19 @@ if st.button("Submit"):
         url = tokens_dict.get(token_input)
         if url:
             st.session_state.url = url
-            st.session_state.url_displayed = True
+            st.session_state.show_message = True
+            st.session_state.start_time = time.time()  # Record start time
             st.success("Token valid. Here is your URL:")
-            st.session_state.show_url = True
-            # Timer to hide URL after 5 seconds
-            time.sleep(5)
-            st.session_state.url_displayed = False
-            st.session_state.url = ""
         else:
             display_message("Jawaban salah", 'error')
     else:
         st.warning("Token harus diisi.")
 
-if st.session_state.url_displayed:
+# Check if URL should be displayed
+if st.session_state.show_message:
     st.markdown(f"<a href='{st.session_state.url}' target='_blank'>{st.session_state.url}</a>", unsafe_allow_html=True)
+    elapsed_time = time.time() - st.session_state.start_time
+    if elapsed_time >= 5:  # If 5 seconds have passed
+        st.session_state.show_message = False
+        st.session_state.url = ""
+        st.experimental_rerun()  # Refresh the app

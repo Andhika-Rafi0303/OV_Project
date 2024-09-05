@@ -43,7 +43,7 @@ with col1:
 with col2:
     st.image('Logo_BD.png', use_column_width=True)
 
-st.title("Token Verification System")
+st.title("Code Inputer")
 
 # Centered input and button
 with st.container():
@@ -56,7 +56,7 @@ with st.container():
                 st.session_state.url = url
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
-                st.session_state.message = f"Token valid. Here is your URL: {url}"
+                st.session_state.message = f"Akses link tersebut : {url}"
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
@@ -64,7 +64,7 @@ with st.container():
         else:
             st.session_state.show_message = True
             st.session_state.message_type = 'error'
-            st.session_state.message = "Token harus diisi."
+            st.session_state.message = "Harus diisi."
     st.write("</div>", unsafe_allow_html=True)
 
 # Display message

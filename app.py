@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 hide_st_style = """
 <style>
@@ -59,33 +60,29 @@ with st.container():
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
                 st.session_state.message = f"Token valid. Here is your URL: {url}"
-                st.session_state.start_time = True
-                # Inject JavaScript to auto-refresh after 5 seconds
-                st.markdown("""
-                    <script>
-                    setTimeout(function() {
-                        document.getElementById("message").innerHTML = "<div class='stAlert' style='background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; text-align: center;'><strong>Waktu habis</strong></div>";
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 1000);
-                    }, 5000);
-                    </script>
-                """, unsafe_allow_html=True)
+                st.session_state.start_time = time.time()
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
                 st.session_state.message = "Jawaban salah"
                 st.session_state.start_time = None
-                # No JavaScript injection needed for incorrect token
         else:
             st.session_state.show_message = True
             st.session_state.message_type = 'error'
             st.session_state.message = "Token harus diisi."
             st.session_state.start_time = None
-            # No JavaScript injection needed for empty token
     st.write("</div>", unsafe_allow_html=True)
 
-# Display message
-message_placeholder = st.empty()
+# Handle message display
 if st.session_state.show_message:
-    message_placeholder.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+    if st.session_state.start_time:
+        elapsed_time = time.time() - st.session_state.start_time
+        if elapsed_time >= 5:  # If 5 seconds have passed
+            st.session_state.show_message = False
+            st.session_state.url = ""
+            st.session_state.message = "Waktu habis"
+            st.session_state.message_type = 'warning'
+        else:
+            st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+    else:
+        st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)

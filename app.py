@@ -1,5 +1,4 @@
 import streamlit as st
-from datetime import datetime
 
 hide_st_style = """
 <style>
@@ -33,8 +32,6 @@ if 'show_message' not in st.session_state:
     st.session_state.show_message = False
 if 'url' not in st.session_state:
     st.session_state.url = ""
-if 'start_time' not in st.session_state:
-    st.session_state.start_time = None
 if 'message_type' not in st.session_state:
     st.session_state.message_type = ''
 if 'message' not in st.session_state:
@@ -60,32 +57,18 @@ with st.container():
                 st.session_state.show_message = True
                 st.session_state.message_type = 'success'
                 st.session_state.message = f"Token valid. Here is your URL: {url}"
-                st.session_state.start_time = datetime.now()
-                # Use st.empty() for dynamic content updates
-                placeholder = st.empty()
-                with placeholder:
-                    # Display the message
-                    st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
-                    # Wait for 5 seconds then update message
-                    while (datetime.now() - st.session_state.start_time).total_seconds() < 5:
-                        st.sleep(1)  # Sleep for a short while to avoid excessive CPU usage
-                    # Update the message after 5 seconds
-                    st.session_state.show_message = False
-                    st.session_state.message_type = 'warning'
-                    st.session_state.message = "Waktu habis"
-                    st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
                 st.session_state.message = "Jawaban salah"
-                st.session_state.start_time = None
         else:
             st.session_state.show_message = True
             st.session_state.message_type = 'error'
             st.session_state.message = "Token harus diisi."
-            st.session_state.start_time = None
     st.write("</div>", unsafe_allow_html=True)
 
 # Display message
 if st.session_state.show_message:
     st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
+    # Reset the message after displaying it
+    st.session_state.show_message = False

@@ -18,6 +18,8 @@ def display_message(message, status):
         st.markdown(f"<div style='background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; text-align: center;'><strong>{message}</strong></div>", unsafe_allow_html=True)
     elif status == 'error':
         st.markdown(f"<div style='background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; text-align: center;'><strong>{message}</strong></div>", unsafe_allow_html=True)
+    elif status == 'warning':
+        st.markdown(f"<div style='background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; text-align: center;'><strong>{message}</strong></div>", unsafe_allow_html=True)
 
 # Load tokens from secrets
 tokens_dict = st.secrets["tokens"]
@@ -58,4 +60,6 @@ if st.session_state.show_message:
     if elapsed_time >= 5:  # If 5 seconds have passed
         st.session_state.show_message = False
         st.session_state.url = ""
-        st.experimental_rerun()  # Refresh the app
+        display_message("Waktu habis", 'warning')  # Show the expired message
+        # Optionally refresh the page if you want it to return to the initial state
+        # st.experimental_rerun()

@@ -27,12 +27,17 @@ def display_message(message, status):
 # Load tokens from secrets
 tokens_dict = st.secrets["tokens"]
 
+# Initialize session state variables
 if 'show_message' not in st.session_state:
     st.session_state.show_message = False
 if 'url' not in st.session_state:
     st.session_state.url = ""
 if 'start_time' not in st.session_state:
     st.session_state.start_time = None
+if 'message_type' not in st.session_state:
+    st.session_state.message_type = ''
+if 'message' not in st.session_state:
+    st.session_state.message = ''
 
 col1, col2 = st.columns([1, 1], vertical_alignment='center')
 with col1:

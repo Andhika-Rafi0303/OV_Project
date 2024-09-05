@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import datetime, timedelta
 
 hide_st_style = """
 <style>
@@ -51,7 +52,7 @@ with st.container():
             if url:
                 st.session_state.url = url
                 st.session_state.show_message = True
-                st.session_state.start_time = st.experimental_get_query_params().get("start_time", [None])[0] or st.time()
+                st.session_state.start_time = datetime.now()
                 st.success(f"Token valid. Here is your URL: {url}")
             else:
                 display_message("Jawaban salah", 'error')
@@ -62,8 +63,8 @@ with st.container():
 # Check if URL should be displayed or if time has expired
 if st.session_state.show_message:
     if st.session_state.start_time:
-        elapsed_time = st.time() - st.session_state.start_time
-        if elapsed_time >= 5:  # If 5 seconds have passed
+        elapsed_time = datetime.now() - st.session_state.start_time
+        if elapsed_time >= timedelta(seconds=5):  # If 5 seconds have passed
             st.session_state.show_message = False
             st.session_state.url = ""
             display_message("Waktu habis", 'warning')

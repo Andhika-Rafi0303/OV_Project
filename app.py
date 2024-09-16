@@ -42,29 +42,13 @@ if 'url' not in st.session_state:
 st.title("THE ANSWER IS NEAR")
 
 st.markdown("""
-<style>
-    body {
-        font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
-        color: #00FF00; /* Terminal green text color */
-        background-color: #000000; /* Terminal black background color */
-    }
-
-    .justify {
-        text-align: justify;
-    }
-
-    /* Optional: Style for links to match terminal theme */
-    a {
-        color: #00FF00; /* Terminal green link color */
-        text-decoration: none;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-<div class="justify">
+<div style="
+    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+    color: #00FF00; /* Terminal green text color */
+    background-color: #000000; /* Terminal black background color */
+    text-align: justify;
+    padding: 20px;
+">
     Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am R4PBD, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.
     <br><br>
     Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of R4PBD, nothing can be concealed.
@@ -83,28 +67,49 @@ phrases = [
 
 # Centered input and button
 with st.container():
-    st.write("<div style='text-align: center;'>", unsafe_allow_html=True)
-    token_input = st.text_input("Input Pasengges ID")
-    if st.button("Submit"):
-        if token_input:
-            url = tokens_dict.get(token_input)
-            if url:
-                st.session_state.url = url
-                st.session_state.show_message = True
-                st.session_state.message_type = 'success'
-                st.session_state.message = random.choice(phrases).format(url=url)
+    # Create two columns for side-by-side layout
+    col1, col2 = st.columns([3, 1])  # Adjust column widths as needed
+
+    # Input field in the first column
+    with col1:
+        token_input = st.text_input("Input Passenger ID")
+
+    # Submit button in the second column
+    with col2:
+        if st.button("Submit"):
+            if token_input:
+                url = tokens_dict.get(token_input)
+                if url:
+                    st.session_state.url = url
+                    st.session_state.show_message = True
+                    st.session_state.message_type = 'success'
+                    st.session_state.message = random.choice(phrases).format(url=url)
+                else:
+                    st.session_state.show_message = True
+                    st.session_state.message_type = 'error'
+                    st.session_state.message = "Seriously? Better luck next time, LOSER!!!"
             else:
                 st.session_state.show_message = True
                 st.session_state.message_type = 'error'
-                st.session_state.message = "Seriously? Wrong again. Better luck next time, LOSER."
-        else:
-            st.session_state.show_message = True
-            st.session_state.message_type = 'error'
-            st.session_state.message = "Token harus diisi."
-    st.write("</div>", unsafe_allow_html=True)
+                st.session_state.message = "Input the ID, FOOL!!!"
 
 # Display message
 if st.session_state.show_message:
     st.markdown(display_message(st.session_state.message, st.session_state.message_type), unsafe_allow_html=True)
     # Reset the message after displaying it
     st.session_state.show_message = False
+
+st.markdown("""
+    <footer style="
+        text-align: center;
+        margin-top: 50px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #00FF00;
+        background-color: #000000;
+        padding: 10px;
+    ">
+        <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
+        <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site.</p>
+        <p>In case you’re wondering, yes, it’s totally pointless, just like most of the internet.</p>
+    </footer>
+""", unsafe_allow_html=True)

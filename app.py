@@ -48,7 +48,7 @@ st.markdown("""
             font-family: 'Courier New', Courier, monospace;
             color: #00FF00;
             background-color: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent background */
-            font-size: 18px;
+            font-size: 10px;
             padding: 5px;
             border-radius: 5px;
         }
@@ -136,7 +136,6 @@ st.markdown("""
     </style>
     <div class="bottom-left-corner">
         &copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)<br>
-        Feel free to admire this copyright notice—it’s the most exciting thing about this site. In case you’re wondering, yes, it’s totally pointless, just like most of the internet.
     </div>
 """, unsafe_allow_html=True)
 

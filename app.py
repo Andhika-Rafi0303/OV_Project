@@ -42,12 +42,13 @@ if 'url' not in st.session_state:
 st.markdown("""
     <style>
         .top-right-corner {
-            position: absolute;
+            position: fixed;
             top: 10px;
             right: 10px;
             font-family: 'Courier New', Courier, monospace;
             color: #00FF00;
-            font-size: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent background */
+            font-size: 18px;
             padding: 5px;
             border-radius: 5px;
         }
@@ -127,7 +128,8 @@ st.markdown("""
             left: 10px;
             font-family: 'Courier New', Courier, monospace;
             color: #00FF00;
-            font-size: 10px;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent background */
             padding: 5px;
             border-radius: 5px;
         }

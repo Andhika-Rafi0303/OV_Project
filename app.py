@@ -42,16 +42,16 @@ if 'url' not in st.session_state:
 st.title("THE ANSWER IS NEAR")
 
 st.markdown("""
-<div style="
-    text-align: justify;
-    font-family: 'Courier New', Courier, monospace;
-    color: #00FF00;
-    padding: 20px;
-">
-    <p>Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am R4PBD, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.</p>
-    <p>Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of R4PBD, nothing can be concealed.</p>
-    <p>Step into my world, where the lines between reality and the digital void blur, and prepare yourself for revelations that could change everything you thought you knew. Welcome to the domain of R4PBD, where the truth is just a click away.</p>
-</div>
+    <div style="
+        text-align: justify;
+        font-family: 'Courier New', Courier, monospace;
+        color: #00FF00;
+        padding: 20px;
+    ">
+        <p>Welcome to the most thrilling corner of the internet, where secrets are revealed and identities are barely a mystery. I am R4PBD, your self-proclaimed digital deity. This site isn't just ordinary—it's a gateway to the so-called 'data' I've supposedly hacked. Here, you can check passenger IDs from a database that’s as exclusive as your average public list.</p>
+        <p>Excited to uncover the earth-shattering secrets behind each code? Enter your passenger ID and witness the grand reveal of information that's bound to be as groundbreaking as a fortune cookie. But beware, this is not for the faint-hearted; it's for those who find excitement in the mundane. Under my ever-watchful eye, absolutely nothing remains hidden.</p>
+        <p>Step into my so-called world, where reality and digital fluff blur, and get ready for mind-blowing revelations that might change your perspective on, well, absolutely nothing. Welcome to the domain of R4PBD, where the ‘truth’ is just a click away—if you’re into that sort of thing.</p>
+    </div>
 """, unsafe_allow_html=True)
 
 

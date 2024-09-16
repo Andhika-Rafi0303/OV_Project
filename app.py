@@ -89,7 +89,7 @@ phrases = [
 # Centered input and button
 with st.container():
     # Create two columns for side-by-side layout
-    col1, col2 = st.columns([1, 3], vertical_alignment = 'bottom')  # Adjust column widths as needed
+    col1, col2 = st.columns([2, 3], vertical_alignment = 'bottom')  # Adjust column widths as needed
 
     # Input field in the first column
     with col2:

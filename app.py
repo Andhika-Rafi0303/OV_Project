@@ -68,7 +68,7 @@ phrases = [
 # Centered input and button
 with st.container():
     # Create two columns for side-by-side layout
-    col1, col2 = st.columns([3, 1])  # Adjust column widths as needed
+    col1, col2 = st.columns([3, 1], vertical_alignment = 'bottom')  # Adjust column widths as needed
 
     # Input field in the first column
     with col1:
@@ -100,7 +100,7 @@ if st.session_state.show_message:
     st.session_state.show_message = False
 
 st.markdown("""
-    <footer style="
+    <div style="
         text-align: center;
         margin-top: 50px;
         font-family: 'Courier New', Courier, monospace;
@@ -112,5 +112,5 @@ st.markdown("""
         <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
         <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site.</p>
         <p>In case you’re wondering, yes, it’s totally pointless, just like most of the internet.</p>
-    </footer>
+    </div>
 """, unsafe_allow_html=True)

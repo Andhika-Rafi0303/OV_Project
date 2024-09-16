@@ -102,13 +102,11 @@ st.markdown("""
         margin-top: 50px;
         font-family: 'Courier New', Courier, monospace;
         color: #00FF00;
-        background-color: #000000;
         padding: 10px;
         border-top: 1px solid #00FF00;
-        font-size: 6px; /* Smaller font size for copyright text */
+        font-size: 8px; /* Adjust font size to be smaller */
     ">
         <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
-        <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site.</p>
-        <p>In case you’re wondering, yes, it’s totally pointless, just like most of the internet.</p>
+        <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site. In case you’re wondering, yes, it’s totally pointless, just like most of the internet.</p>
     </div>
 """, unsafe_allow_html=True)

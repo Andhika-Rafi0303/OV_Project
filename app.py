@@ -41,21 +41,35 @@ if 'url' not in st.session_state:
 
 st.title("THE ANSWER IS NEAR")
 
-import streamlit as st
-
 st.markdown("""
 <style>
-.justify {
-    text-align: justify;
-}
+    body {
+        font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+        color: #00FF00; /* Terminal green text color */
+        background-color: #000000; /* Terminal black background color */
+    }
+
+    .justify {
+        text-align: justify;
+    }
+
+    /* Optional: Style for links to match terminal theme */
+    a {
+        color: #00FF00; /* Terminal green link color */
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
 </style>
 
 <div class="justify">
-    Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am RAP27, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.
+    Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am R4PBD, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.
     <br><br>
-    Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of RAP27, nothing can be concealed.
+    Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of R4PBD, nothing can be concealed.
     <br><br>
-    Step into my world, where the lines between reality and the digital void blur, and prepare yourself for revelations that could change everything you thought you knew. Welcome to the domain of RAP27, where the truth is just a click away.
+    Step into my world, where the lines between reality and the digital void blur, and prepare yourself for revelations that could change everything you thought you knew. Welcome to the domain of R4PBD, where the truth is just a click away.
 </div>
 """, unsafe_allow_html=True)
 

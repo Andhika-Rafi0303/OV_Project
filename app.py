@@ -40,11 +40,30 @@ if 'url' not in st.session_state:
     st.session_state.url = ''
 
 st.markdown("""
+    <style>
+        .top-right-corner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00FF00;
+            font-size: 8px;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent background */
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+    <div class="top-right-corner">
+        Looking for a GitHub logo? Nice try, but we’re not falling for that again.
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
     <h1 style="
         color: #00FF00; 
         font-family: 'Courier New', Courier, monospace; 
         text-align: center;
-    ">WOW, LOOK WHO DECIDED TO PLAY DETECTIVE—WELCOME TO YOUR FUTILE QUEST</h1>
+    ">WOW, LOOK WHO DECIDED TO PLAY DETECTIVE—GOOD LUCK NOOB</h1>
 """, unsafe_allow_html=True)
 
 st.markdown("""

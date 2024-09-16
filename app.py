@@ -106,7 +106,8 @@ st.markdown("""
         font-family: 'Courier New', Courier, monospace;
         color: #00FF00;
         background-color: #000000;
-        padding: 10px;
+        padding: 20px;
+        border-top: 1px solid #00FF00;
     ">
         <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
         <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site.</p>

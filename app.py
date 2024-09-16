@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 hide_st_style = """
 <style>

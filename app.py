@@ -54,7 +54,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-
 phrases = [
     "Wow, you actually got it right? <a href='{url}' target='_blank'>NEXT CLUE</a>—don’t get used to it; luck won’t always save you.",
     "Well, look at you, getting it right! <a href='{url}' target='_blank'>CLICK HERE FOR THE NEXT CLUE</a>—don’t let this success go to your head.",

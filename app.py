@@ -43,17 +43,15 @@ st.title("THE ANSWER IS NEAR")
 
 st.markdown("""
 <div style="
-    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
-    color: #00FF00; /* Terminal green text color */
-    background-color: #000000; /* Terminal black background color */
-    text-align: justify;
+    background-color: #000000;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00FF00;
     padding: 20px;
 ">
-    Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am R4PBD, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.
-    <br><br>
-    Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of R4PBD, nothing can be concealed.
-    <br><br>
-    Step into my world, where the lines between reality and the digital void blur, and prepare yourself for revelations that could change everything you thought you knew. Welcome to the domain of R4PBD, where the truth is just a click away.
+    <p>Welcome to the dark side of the world, where secrets are unveiled and identities laid bare. I am R4PBD, the enigmatic overlord of the digital shadows. This is not just any ordinary site—it's a portal into the depths of the data I've meticulously hacked. Here, you have the power to check passenger IDs from an exclusive, clandestine database.</p>
+    <p>Are you ready to uncover the hidden stories behind each code? Enter your passenger ID and let the veil of mystery be lifted. Every digit, every character holds a secret waiting to be discovered. But beware, this realm is not for the faint-hearted. Here, under the watchful eyes of R4PBD, nothing can be concealed.</p>
+    <p>Step into my world, where the lines between reality and the digital void blur, and prepare yourself for revelations that could change everything you thought you knew. Welcome to the domain of R4PBD, where the truth is just a click away.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -106,8 +104,9 @@ st.markdown("""
         font-family: 'Courier New', Courier, monospace;
         color: #00FF00;
         background-color: #000000;
-        padding: 20px;
+        padding: 10px;
         border-top: 1px solid #00FF00;
+        font-size: 12px; /* Smaller font size for copyright text */
     ">
         <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
         <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site.</p>

@@ -39,7 +39,13 @@ if 'message' not in st.session_state:
 if 'url' not in st.session_state:
     st.session_state.url = ''
 
-st.title("THE ANSWER IS NEAR")
+st.markdown("""
+    <h1 style="
+        color: #00FF00; 
+        font-family: 'Courier New', Courier, monospace; 
+        text-align: center;
+    ">WOW, LOOK WHO DECIDED TO PLAY DETECTIVE—WELCOME TO YOUR FUTILE QUEST</h1>
+""", unsafe_allow_html=True)
 
 st.markdown("""
     <div style="

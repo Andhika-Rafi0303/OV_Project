@@ -104,7 +104,7 @@ st.markdown("""
         color: #00FF00;
         padding: 10px;
         border-top: 1px solid #00FF00;
-        font-size: 8px !important; /* Force font size to be smaller */
+        font-size: 2px !important; /* Force font size to be smaller */
     ">
         <p>&copy; 2024 R4PBD. All rights reserved. (Like anyone would actually try to copy this gem.)</p>
         <p>Feel free to admire this copyright notice—it’s the most exciting thing about this site. In case you’re wondering, yes, it’s totally pointless, just like most of the internet.</p>

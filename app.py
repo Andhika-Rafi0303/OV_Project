@@ -6,15 +6,14 @@ hide_st_style = """
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
-footer > div:first-of-type {visibility: hidden;} /* Hide "Hosted with Streamlit" */
+footer > div:first-of-type {visibility: hidden;}
 body {display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; flex-direction: column;}
-input[type='text'] {width: 300px; padding: 10px; font-size: 18px;} /* Adjust input field width and padding */
-.stAlert {font-size: 20px;} /* Increase font size of notifications */
-a {color: blue; text-decoration: underline;} /* Style links */
+input[type='text'] {width: 300px; padding: 10px; font-size: 18px;}
+.stAlert {font-size: 20px;}
+a {color: blue; text-decoration: underline;}
 </style>
 """
 
-# Embed CSS in the Streamlit app
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 def display_message(message, status):
@@ -29,7 +28,7 @@ def display_message(message, status):
 # Load tokens from secrets
 tokens_dict = st.secrets["tokens"]
 
-# Initialize session state variables
+# Initialize session state variable
 if 'show_message' not in st.session_state:
     st.session_state.show_message = False
 if 'message_type' not in st.session_state:
